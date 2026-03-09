@@ -54,7 +54,7 @@ wf = Workflow()
 analyzer = wf.add_task(name="infer_uniface_analyzer", auto_connect=True)
 
 # Run the workflow on image
-wf.run_on(url="https://github.com/Ikomia-dev/notebooks/blob/main/examples/img/img_portrait_5.jpg?raw=true")
+wf.run_on(url="https://raw.githubusercontent.com/Ikomia-dev/notebooks/refs/heads/main/examples/img/img_portrait_5.jpg")
 
 # Display result with bounding boxes
 display(analyzer.get_image_with_graphics())
@@ -99,7 +99,7 @@ analyzer.set_parameters({
 })
 
 # Run the workflow on image
-wf.run_on(url="https://github.com/yakhyo/uniface/blob/main/assets/scientists.png?raw=true")
+wf.run_on(url="https://raw.githubusercontent.com/yakhyo/uniface/refs/heads/main/assets/scientists.png")
 
 # Display result with bounding boxes
 display(analyzer.get_image_with_graphics())
@@ -134,7 +134,7 @@ wf = Workflow()
 analyzer = wf.add_task(name="infer_uniface_analyzer", auto_connect=True)
 
 # Run the workflow on image
-wf.run_on(url="https://github.com/yakhyo/uniface/blob/main/assets/scientists.png?raw=true")
+wf.run_on(url="https://raw.githubusercontent.com/yakhyo/uniface/refs/heads/main/assets/scientists.png")
 
 # Iterate over outputs
 for output in analyzer.get_outputs():
