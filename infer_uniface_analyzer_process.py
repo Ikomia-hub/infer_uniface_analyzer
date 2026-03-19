@@ -3,7 +3,10 @@ Module that implements the core logic of algorithm execution.
 """
 import copy
 import os
+
 from ikomia import core, dataprocess
+from ikomia.dataprocess.io.datadictIO import DataDictIO
+
 from .models.model_loader import create_detector, create_age_gender, create_emotion
 
 
@@ -74,7 +77,7 @@ class InferUnifaceAnalyzer(dataprocess.CObjectDetectionTask):
         dataprocess.CObjectDetectionTask.__init__(self, name)
 
         # Add dictionary output for age and gender results
-        self.add_output(dataprocess.DataDictIO())
+        self.add_output(DataDictIO())
 
         # Create parameters object
         if param is None:
@@ -121,7 +124,7 @@ class InferUnifaceAnalyzer(dataprocess.CObjectDetectionTask):
             self.emotion = None
 
     def init_long_process(self):
-        """Initialize long running process."""
+        """Initialize long-running process."""
         self._load_models()
         super().init_long_process()
 
@@ -250,7 +253,7 @@ class InferUnifaceAnalyzerFactory(dataprocess.CTaskFactory):
         self.info.license = "MIT License"
 
         # Ikomia API compatibility
-        self.info.min_ikomia_version = "0.15.0"
+        self.info.min_ikomia_version = "0.16.0"
 
         # URL of documentation
         self.info.documentation_link = "https://yakhyo.github.io/uniface/"

@@ -1,12 +1,13 @@
 """
 Module that implements the UI widget of the algorithm.
 """
+# PyQt GUI framework
+from PyQt6.QtWidgets import *
+
 from ikomia import core, dataprocess
 from ikomia.utils import pyqtutils, qtconversion
-from infer_uniface_analyzer.infer_uniface_analyzer_process import InferUnifaceAnalyzerParam
 
-# PyQt GUI framework
-from PyQt5.QtWidgets import *
+from infer_uniface_analyzer.infer_uniface_analyzer_process import InferUnifaceAnalyzerParam
 
 
 class InferUnifaceAnalyzerWidget(core.CWorkflowTaskWidget):
@@ -29,8 +30,7 @@ class InferUnifaceAnalyzerWidget(core.CWorkflowTaskWidget):
         layout_ptr = qtconversion.PyQtToQt(self.grid_layout)
 
         # Detector selection
-        self.combo_detector = pyqtutils.append_combo(
-            self.grid_layout, "Detector")
+        self.combo_detector = pyqtutils.append_combo(self.grid_layout, "Detector")
         self.combo_detector.addItem("retinaface")
         self.combo_detector.addItem("yolov5face")
         self.combo_detector.addItem("scrfd")
@@ -68,8 +68,7 @@ class InferUnifaceAnalyzerWidget(core.CWorkflowTaskWidget):
         self.check_enable_emotion.stateChanged.connect(self.on_emotion_changed)
 
         # Emotion model selection
-        self.combo_emotion = pyqtutils.append_combo(
-            self.grid_layout, "Emotion model")
+        self.combo_emotion = pyqtutils.append_combo(self.grid_layout, "Emotion model")
         self.combo_emotion.addItem("affecnet7")
         self.combo_emotion.addItem("affecnet8")
         self.combo_emotion.setCurrentText(self.parameters.emotion_model)
